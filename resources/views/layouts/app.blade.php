@@ -33,36 +33,54 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto text-white">
+                        @guest
+                        @else
                         <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-4 mt-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <h5>Livros</h5>
                             </a>
 
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"></a>
-
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ route('livros.index') }}">Todos</a>
+                                <a class="dropdown-item" href="{{ route('livros.create') }}">Adicionar Livro</a>
                             </div>
 
-                        </li><li class="nav-item dropdown">
+                        </li>
+                            <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-4 mt-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <h5>Autores</h5>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"></a>
-                            </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('autores.index') }}">Todos</a>
+                                    <a class="dropdown-item" href="{{ route('autores.create') }}">Adicionar Autor</a>
+                                </div>
 
-                        </li><li class="nav-item dropdown">
+                        </li>
+                            <li class="nav-item dropdown">
+
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-4 mt-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <h5>Editoras</h5>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('editoras.index') }}">Todos</a>
+                                    <a class="dropdown-item" href="{{ route('editoras.create') }}">Adicionar Editora</a>
+                                </div>
+
+                            </li>
+                            <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-4 mt-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <h5>Editoras</h5>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"></a>
-                            </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('editoras.index') }}">Todos</a>
+                                    <a class="dropdown-item" href="{{ route('editoras.create') }}">Adicionar Membro</a>
+                                </div>
 
                         </li><li class="nav-item dropdown">
 
@@ -70,11 +88,13 @@
                                 <h5>Emprestimos</h5>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"></a>
-                            </div>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="{{ route('emprestimos.index') }}">Todos</a>
+                                    <a class="dropdown-item" href="{{ route('emprestimos.create') }}">Adicionar Emprestimo</a>
+                                </div>
 
                         </li>
+                            @endguest
 
                     </ul>
 
