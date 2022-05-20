@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('livros', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->foreignId('idautor')->constrained();
+            $table->foreignId('autor_id')->constrained();
             $table->string('tipo');
             $table->text('descricao');
             $table->string('codigobarras');
             $table->string('isbn');
             $table->string('edicao');
-            $table->foreignId('ideditora')->constrained();
+            $table->foreignId('editora_id')->constrained();
             $table->string('ano');
             $table->timestamps();
         });
