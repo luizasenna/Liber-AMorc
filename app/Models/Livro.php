@@ -10,16 +10,25 @@ class Livro extends Model
     use HasFactory;
 
      protected $fillable = [
-         'titulo',
-         'idautor',
+         'nome',
+         'autor_id',
          'tipo',
          'descricao',
          'codigobarras',
          'isbn',
          'edicao',
-         'ideditora',
+         'editora_id',
          'ano'
      ];
 
+    public function autor()
+    {
+        return $this->hasOne(Autor::class, "id");
+     }
+
+    public function editora()
+    {
+        return $this->hasOne(Editora::class, 'id');
+     }
 
 }

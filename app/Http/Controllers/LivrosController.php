@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Autor;
+use App\Models\Editora;
 use App\Models\Livro;
 use Illuminate\Http\Request;
 
@@ -9,12 +11,18 @@ class LivrosController extends Controller
 {
     public function index()
     {
-        return view('livros.index');
+        $colecao = Livro::with('editora')->with('autor')->orderBy('nome')->get();
+        return view('livros.index')->with('colecao', $colecao);
     }
 
     public function create()
     {
-        return view('livros.create');
+        $autores = Autor::orderBy('nome')->get();
+        $editoras = Editora::orderBy('nome')->get();
+        return view('livros.create',[
+            'autores' => $autores,
+            'editoras' => $editoras
+        ]);
     }
 
     public function store(Request $request)

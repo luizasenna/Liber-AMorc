@@ -74,12 +74,12 @@
                         <li class="nav-item dropdown">
 
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-white ms-4 mt-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                Editoras
+                                Membros
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{ route('editoras.index') }}">Todos</a>
-                                <a class="dropdown-item" href="{{ route('editoras.create') }}">Adicionar Membro</a>
+                                <a class="dropdown-item" href="{{ route('membros.index') }}">Todos</a>
+                                <a class="dropdown-item" href="{{ route('membros.create') }}">Adicionar Membro</a>
                             </div>
 
                         </li><li class="nav-item dropdown">

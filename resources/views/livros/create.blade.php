@@ -5,13 +5,14 @@
         @csrf
         <div class="form-group mt-3">
             <label>Titulo do Livro:</label>
-            <input class="form-control" name="titulo" type="text" required/>
+            <input class="form-control" name="nome" type="text" required/>
         </div>
         <div class="form-group mt-2">
             <label>Autor (a): </label>
             <select class="form-control mt-2" name="autor_id" required>
-                <option value=1>Autor</option>
-                <option value=2>Autor</option>
+                @foreach($autores as $autor)
+                <option value={{$autor->id}}>{{$autor->nome}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group mt-2">
@@ -24,8 +25,9 @@
         <div class="form-group mt-2">
             <label>Nome da Editora: </label>
             <select class="form-control mt-2" name="editora_id" required>
-                <option value=1>Editora</option>
-                <option value=1>Editora</option>
+                @foreach($editoras as $editora)
+                <option value={{$editora->id}}>{{$editora->nome}}</option>
+               @endforeach
             </select>
         </div>
         <div class="form-group mt-2">
@@ -50,7 +52,7 @@
             <input class="form-control mt-2" name="ano"/>
         </div>
         <div class="form-group mt-2">
-            <button type="submit"> Adicionar</button>
+            <button type="submit" class="btn btn-dark"> Adicionar</button>
         </div>
 
 

@@ -5,19 +5,20 @@
          <a class=" btn btn-dark" href="{{ route($adicionar) }}">Adicionar Novo</a>
     </span>
     <table class="mt-4 table">
-        <th class="col-md-9 bg-dark text-white">Nome</th>
-        <th class="col-md-3 bg-dark text-white">Ações</th>
-        <tr>
-            <td>Livro</td>
-            <td>
-                <span class="d-flex">
-                    <a class="btn btn-dark" href="{{route($editar,'1')}}">Editar</a>
-                    <form action="{{ route($excluir, '1') }}">
-                        <input type="submit" class="ms-2 btn btn-danger" value="Excluir"/>
-                    </form>
 
-                </span>
-            </td>
-        </tr>
+        <th class="col-md-1 bg-dark text-white">Cod</th>
+        @if($adicionar == 'livros.create')
+            <th class="col-md-6 bg-dark text-white">Nome</th>
+            <th class="col-md-3 bg-dark text-white">Autor(a)</th>
+            @elseif($adicionar == 'membros.create')
+                <th class="col-md-6 bg-dark text-white">Nome</th>
+                <th class="col-md-3 bg-dark text-white">Chave</th>
+        @else
+            <th class="col-md-6 bg-dark text-white">Nome</th>
+        @endif
+
+        <th class="col-md-2 bg-dark text-white">Ações</th>
+
+    {{ $slot }}
     </table>
 </div>
