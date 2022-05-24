@@ -1,4 +1,4 @@
-<x-layout title="Todos os Autores">
+<x-layout title="Todos os Autores" :mensagemSucesso="$mensagemSucesso">
     <x-list
             nome="Todos os Autores"
             adicionar="autores.create"

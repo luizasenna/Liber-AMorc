@@ -10,9 +10,11 @@ class EditorasController extends Controller
     public function index()
     {
         $colecao = Editora::orderBy('nome')->get();
+        $mensagemSucesso = session('mensagem.sucesso');
         //dd($colecao);
         return view('editoras.index', [
-            'colecao' => $colecao
+            'colecao' => $colecao,
+            'mensagemSucesso' => $mensagemSucesso
         ]);
     }
 
@@ -29,8 +31,26 @@ class EditorasController extends Controller
         $new = Editora::create($col);
 
 
-        return to_route('editoras.index',[
-            'mensagem.sucesso' => 'Editora adicionada com sucesso'
-        ]);
+        return to_route('editoras.index')->with('mensagem.sucesso' , 'Editora adicionada com sucesso');
+    }
+
+    public function edit(Editora $editora)
+    {
+        //dd($editora);
+        return view('editoras.edit')->with('colecao', $editora);
+    }
+
+    public function update(Editora $editora, Request $request)
+    {
+        $editora->fill($request->all());
+        $editora->save();
+        return to_route('editoras.index')->with('mensagem.sucesso', 'Editora Atualizada com sucesso.');
+    }
+
+    public function destroy(Editora $editora)
+    {
+        $editora->delete();
+
+        return to_route('editoras.index')->with('mensagem.sucesso', 'Editora deletada com sucesso.');
     }
 }

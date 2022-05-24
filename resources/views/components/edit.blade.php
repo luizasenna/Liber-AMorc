@@ -10,7 +10,7 @@
     @if($action == 'membros.update')
         <div class="form-group mt-3">
             <label>Chave:</label>
-            <input class="form-control" name="chave"/>
+            <input class="form-control" name="chave" value="{{$chave}}"/>
         </div>
     @endif
     <div class="form-group mt-3">

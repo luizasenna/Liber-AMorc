@@ -10,9 +10,10 @@ class AutoresController extends Controller
     public function index()
     {
         $colecao = Autor::orderBy('nome')->get();
-        //dd($colecao);
+        $mensagemSucesso = session('mensagem.sucesso');
         return view('autores.index', [
-            'colecao' => $colecao
+            'colecao' => $colecao,
+            'mensagemSucesso' => $mensagemSucesso
         ]);
     }
 
@@ -23,7 +24,6 @@ class AutoresController extends Controller
 
     public function store(Request $request)
     {
-        //dd($request->all());
         $new =  Autor::create($request->all());
 
         return to_route('autores.index')->with('mensagem.sucesso', 'Autor adicionado com sucesso.');
