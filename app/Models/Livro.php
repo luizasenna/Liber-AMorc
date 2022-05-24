@@ -23,12 +23,12 @@ class Livro extends Model
 
     public function autor()
     {
-        return $this->hasOne(Autor::class, "id");
+        return $this->belongsTo(Autor::class, 'autor_id');
      }
 
     public function editora()
     {
-        return $this->hasOne(Editora::class, 'id');
+        return $this->belongsTo(Editora::class, 'editora_id');
      }
 
 }
