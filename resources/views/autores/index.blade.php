@@ -11,8 +11,10 @@
                 <td>{{$c->nome}}</td>
                 <td>
                 <span class="d-flex">
-                    <a class="btn btn-dark" href="{{route('livros.edit',$c->id)}}">Editar</a>
-                    <form action="{{ route('livros.destroy', $c->id) }}">
+                    <a class="btn btn-dark" href="{{route('autores.edit',$c->id)}}">Editar</a>
+                    <form action="{{ route('autores.destroy', $c->id) }}" method="post">
+                        @method('DELETE')
+                        @csrf
                         <input type="submit" class="ms-2 btn btn-danger" value="Excluir"/>
                     </form>
 

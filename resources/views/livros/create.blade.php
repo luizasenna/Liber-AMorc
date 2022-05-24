@@ -18,8 +18,9 @@
         <div class="form-group mt-2">
             <label>Tipo de Livro: </label>
             <select class="form-control mt-2" name="tipo" required>
-                <option value=1>Brochura Capa Fina</option>
-                <option value=1>Revista</option>
+                @foreach($tipos as $tipo)
+                    <option value={{$tipo}}>{{$tipo}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group mt-2">

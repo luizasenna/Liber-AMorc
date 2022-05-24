@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 
 class LivrosController extends Controller
 {
+
+    const tipos = ['Brochura', 'Revista', 'Capa Dura', 'Espiral', 'Grampeado'];
+
     public function index()
     {
         $colecao = Livro::with('editora')->with('autor')->orderBy('nome')->get();
@@ -21,7 +24,8 @@ class LivrosController extends Controller
         $editoras = Editora::orderBy('nome')->get();
         return view('livros.create',[
             'autores' => $autores,
-            'editoras' => $editoras
+            'editoras' => $editoras,
+            'tipos' => self::tipos,
         ]);
     }
 

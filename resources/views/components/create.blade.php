@@ -8,7 +8,7 @@
             <label>Nome:</label>
             <input class="form-control" name="nome"/>
         </div>
-        @if($action = 'membros.store')
+        @if($action == 'membros.store')
             <div class="form-group mt-3">
                 <label>Chave:</label>
                 <input class="form-control" name="chave"/>
