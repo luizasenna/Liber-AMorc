@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('emprestimos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('idlivro')->constrained();
-            $table->foreignId('idmembro')->constrained();
-            $table->foreignId('iduser')->constrained();
-            $table->timestamp('dataemprestimo');
-            $table->timestamp('datadevolucao');
+            $table->foreignId('livro_id')->constrained();
+            $table->foreignId('membro_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->datetime('dataemprestimo');
+            $table->datetime('datadevolucao')->nullable();
             $table->timestamps();
         });
     }
