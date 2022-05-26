@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('edicao')->nullable();
             $table->foreignId('editora_id')->constrained();
             $table->string('ano');
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }

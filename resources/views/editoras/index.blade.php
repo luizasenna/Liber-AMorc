@@ -13,10 +13,16 @@
                 <td>
                 <span class="d-flex">
                     <a class="btn btn-dark" href="{{route('editoras.edit',$c->id)}}">Editar</a>
-                    <form action="{{ route('editoras.destroy', $c->id) }}" method="post">
+                    <form action="{{ route('editoras.update', $c->id) }}" method="post">
                         @csrf
-                        @method('DELETE')
-                        <input type="submit" class="ms-2 btn btn-danger" value="Excluir"/>
+                        @method('PUT')
+                        @if($c->status == '0')
+                            <input type="hidden" name="status" value="1"/>
+                            <input type="submit" class="ms-2 btn btn-danger" value="Inativar"/>
+                        @else
+                            <input type="hidden" name="status" value="0"/>
+                            <input type="submit" class="ms-2 btn btn-warning" value="Reativar"/>
+                        @endif
                     </form>
 
                 </span>

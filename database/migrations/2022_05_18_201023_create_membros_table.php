@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('chave');
             $table->string('nome');
+            $table->string('email')->nullable();
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }

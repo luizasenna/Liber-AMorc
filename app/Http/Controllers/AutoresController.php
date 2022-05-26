@@ -9,7 +9,7 @@ class AutoresController extends Controller
 {
     public function index()
     {
-        $colecao = Autor::orderBy('nome')->get();
+        $colecao = Autor::orderBy('status')->orderBy('nome')->get();
         $mensagemSucesso = session('mensagem.sucesso');
         return view('autores.index', [
             'colecao' => $colecao,

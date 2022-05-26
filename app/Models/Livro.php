@@ -18,7 +18,8 @@ class Livro extends Model
          'isbn',
          'edicao',
          'editora_id',
-         'ano'
+         'ano',
+         'status'
      ];
 
     public function autor()
@@ -29,6 +30,11 @@ class Livro extends Model
     public function editora()
     {
         return $this->belongsTo(Editora::class, 'editora_id');
+     }
+
+    public function emprestimo()
+    {
+        return $this->hasMany(Emprestimo::class, 'id', 'livro_id');
      }
 
 }

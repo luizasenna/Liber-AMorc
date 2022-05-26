@@ -13,6 +13,10 @@
                 <label>Chave:</label>
                 <input class="form-control" name="chave"/>
             </div>
+            <div class="form-group mt-3">
+                <label>Email:</label>
+                <input class="form-control" name="email"/>
+            </div>
         @endif
         <div class="form-group mt-3">
             <input class="btn btn-dark" type="submit" value="Adicionar"/>

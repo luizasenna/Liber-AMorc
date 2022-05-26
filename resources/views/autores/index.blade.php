@@ -12,10 +12,16 @@
                 <td>
                 <span class="d-flex">
                     <a class="btn btn-dark" href="{{route('autores.edit',$c->id)}}">Editar</a>
-                    <form action="{{ route('autores.destroy', $c->id) }}" method="post">
-                        @method('DELETE')
+                    <form action="{{ route('autores.update', $c->id) }}" method="post">
+                        @method('PUT')
                         @csrf
-                        <input type="submit" class="ms-2 btn btn-danger" value="Excluir"/>
+                        @if($c->status == '0')
+                            <input type="hidden" name="status" value="1"/>
+                            <input type="submit" class="ms-2 btn btn-danger" value="Inativar"/>
+                        @else
+                            <input type="hidden" name="status" value="0"/>
+                            <input type="submit" class="ms-2 btn btn-warning" value="Reativar"/>
+                        @endif
                     </form>
 
                 </span>

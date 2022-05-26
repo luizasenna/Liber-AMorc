@@ -9,7 +9,7 @@
                 <select name="livro_id" id="livro" class="form-control mt-2" required>
                     <option disabled selected value>Selecione</option>
                     @foreach($livros as $livro)
-                        <option value="{{$livro->id}}">{{ $livro->nome }}</option>
+                        <option value="{{$livro->id}}">{{$livro->id}} - {{ $livro->nome }}</option>
                     @endforeach
                 </select>
             </div>
@@ -32,6 +32,7 @@
                 <input type="text" class="form-control mt-2" name="usuario" id="usuario" disabled value="{{$usuario->name}}">
             </div>
             <input type="hidden" name="user_id" value="{{$usuario->id}}"/>
+            <input type="hidden" name="status" value="0"/>
             <div class="form-group mt-2">
                 <input type="submit" class="btn btn-dark" value="Emprestar"/>
             </div>

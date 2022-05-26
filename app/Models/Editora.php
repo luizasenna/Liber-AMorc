@@ -11,6 +11,6 @@ class Editora extends Model
 
     protected $table = 'editoras';
     protected $fillable = [
-        'nome'
+        'nome', 'status'
     ];
 }

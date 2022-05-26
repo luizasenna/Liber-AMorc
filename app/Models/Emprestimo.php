@@ -14,7 +14,8 @@ class Emprestimo extends Model
         'membro_id',
         'user_id',
         'dataemprestimo',
-        'datadevolucao'
+        'datadevolucao',
+        'status'
     ];
 
     public function user()

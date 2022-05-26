@@ -17,7 +17,7 @@
                         <td>{{date('d/m/Y', strtotime($emprestimo->dataemprestimo)) }}</td>
                         <td>{{$emprestimo->livro->nome}}</td>
                         <td>{{$emprestimo->membro->nome}}</td>
-                        <td>{{$emprestimo->datadevolucao ? 'Devolvido' : 'Pendente'}}</td>
+                        <td>{{$emprestimo->status == 1 ? 'Devolvido' : 'Pendente'}}</td>
                         <td>
                             @if(isset($emprestimo->datadevolucao))   Finalizado
                             @else

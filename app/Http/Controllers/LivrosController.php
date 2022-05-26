@@ -16,7 +16,7 @@ class LivrosController extends Controller
     public function index()
     {
         $mensagemSucesso = session('mensagem.sucesso');
-        $colecao = Livro::with('editora')->with('autor')->orderBy('nome')->get();
+        $colecao = Livro::with('editora')->with('autor')->orderBy('livros.status')->orderBy('nome')->get();
         return view('livros.index', [
             'mensagemSucesso' => $mensagemSucesso
         ])->with('colecao', $colecao);

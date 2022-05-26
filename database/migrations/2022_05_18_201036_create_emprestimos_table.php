@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->datetime('dataemprestimo');
             $table->datetime('datadevolucao')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

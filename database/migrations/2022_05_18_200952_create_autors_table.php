@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('autors', function (Blueprint $table) {
+        Schema::create('autores', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
+            $table->integer('status')->default('0');
             $table->timestamps();
         });
     }

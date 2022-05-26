@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Autor;
 use App\Models\Emprestimo;
 use App\Models\Livro;
 use App\Models\Membro;
@@ -13,7 +12,7 @@ class EmprestimosController extends Controller
 {
     public function index()
     {
-        $emprestimos = Emprestimo::all();
+        $emprestimos = Emprestimo::orderBy('status')->get();
         $mensagemSucesso = session('mensagem.sucesso');
         return view('emprestimos.index',[
             'emprestimos' => $emprestimos,
@@ -23,7 +22,12 @@ class EmprestimosController extends Controller
 
     public function create()
     {
-        $livros = Livro::orderBy('nome')->get();
+        //$livros = Livro::orderBy('nome')->get();
+        $livros = Livro::leftJoin('emprestimos', 'livros.id', '=' ,'emprestimos.livro_id')
+           ->where(function($query){
+               $query->whereNull('dataemprestimo')
+                   ->orWhereNotNull('datadevolucao');
+           })->groupBy('livros.id')->orderBy('status')->get(array('livros.*'));
         $membros = Membro::orderBy('nome')->get();
         $usuario = auth()->user();
 

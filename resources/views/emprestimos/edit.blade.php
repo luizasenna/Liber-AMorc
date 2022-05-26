@@ -12,6 +12,7 @@
                 <div class="form-group mt-4">
                     <label>Data da Devolução: </label>
                     <input type="date" name="datadevolucao" id="datadevolucao" class="form-control mt-2"/>
+                    <input type="hidden" name="status" id="status" value="1"/>
                 </div>
 
                 <input type="submit" value="Devolver" class="btn btn-dark mt-2" />

@@ -13,8 +13,8 @@
                 <td>
                 <span class="d-flex">
                     <a class="btn btn-dark" href="{{route('membros.edit',$c->id)}}">Editar</a>
-                   <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
-                      Delete
+                   <button type="button" class="btn {{$c->status == '0' ? 'btn-danger' : 'btn-warning' }} ms-2" data-toggle="modal" data-target="#deleteModal">
+                      @if($c->status == '0') Inativar @else Reativar @endif
                     </button>
                 </span>
                     <!-- Modal -->
@@ -28,14 +28,20 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Tem certeza que deseja excluir este membro?
+                                    Tem certeza que deseja inativar este membro?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <form action="{{ route('membros.destroy', $c->id) }}" method="post">
+                                    <form action="{{ route('membros.update', $c->id) }}" method="post">
                                         @csrf
-                                        @method('DELETE')
-                                        <input id="deleteInput" type="submit" class="ms-2 btn btn-danger" value="Excluir"/>
+                                        @method('PUT')
+                                        @if($c->status == '0')
+                                            <input type="hidden" name="status" value="1"/>
+                                            <input type="submit" class="ms-2 btn btn-danger" value="Inativar"/>
+                                        @else
+                                            <input type="hidden" name="status" value="0"/>
+                                            <input type="submit" class="ms-2 btn btn-warning" value="Reativar"/>
+                                        @endif
                                     </form>
                                 </div>
                             </div>

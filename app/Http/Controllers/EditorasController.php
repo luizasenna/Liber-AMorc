@@ -9,7 +9,7 @@ class EditorasController extends Controller
 {
     public function index()
     {
-        $colecao = Editora::orderBy('nome')->get();
+        $colecao = Editora::orderBy('status')->orderBy('nome')->get();
         $mensagemSucesso = session('mensagem.sucesso');
         //dd($colecao);
         return view('editoras.index', [
